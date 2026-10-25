@@ -1,0 +1,57 @@
+/* Demo of TPW's existing account drawer. Only the Intake entry is new. */
+html.tpw-account-open { overflow: hidden !important; }
+@font-face { font-family: 'Degular'; src: url('fonts/degular-text-500.woff2') format('woff2'); font-weight: 400 500; font-display: swap; }
+@font-face { font-family: 'Degular'; src: url('fonts/degular-text-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+.tpw-account-drawer { box-sizing: border-box; position: fixed; inset: 0 0 0 auto; width: min(440px, 100vw); height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; border-radius: 0; background: #fff; color: #414141; overflow: auto; overscroll-behavior: contain; font: 400 16px/1.5 'Degular', Arial, sans-serif; text-align: center; }
+.tpw-account-drawer::backdrop { background: rgb(0 0 0 / 30%); }
+.tpw-account-drawer * { box-sizing: border-box; }
+.tpw-account-drawer .tpw-account-header { position: relative; display: flex; align-items: center; justify-content: center; min-height: 60px; margin: 0 6px; padding: 16px 70px; border-bottom: 1px solid #eee; }
+.tpw-account-drawer .tpw-account-header h2 { margin: 0; color: inherit; font: inherit; letter-spacing: .04em; }
+.tpw-account-drawer button { width: auto; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.tpw-account-drawer .tpw-account-close { position: absolute; right: 22px; top: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.tpw-account-drawer .tpw-account-body { padding: 0 16px 24px; }
+.tpw-account-drawer .tpw-account-greeting { padding: 40px 12px; }
+.tpw-account-drawer .tpw-account-greeting h3 { margin: 0 0 2px; font-family: inherit; font-size: 26px; font-weight: 400; line-height: 1.3; }
+.tpw-account-drawer .tpw-account-signout { font-size: 12px; }
+.tpw-account-drawer .tpw-account-row { display: block; margin: 0; padding: 21px 12px; border-top: 1px solid #eee; color: inherit; }
+.tpw-account-drawer .tpw-account-row h3 { margin: 0 0 2px; font-family: inherit; font-size: 19px; font-weight: 400; line-height: 1.4; }
+.tpw-account-drawer .tpw-account-row p, .tpw-account-drawer .tpw-account-caption { display: block; margin: 0; font-size: 14px; color: #777; }
+.tpw-account-drawer .tpw-account-intake { border-bottom: 1px solid #eee; text-decoration: none; }
+.tpw-account-drawer .tpw-account-intake-label { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 2px; font-size: 19px; }
+.tpw-account-drawer .tpw-new-badge { padding: 1px 5px; border: 1px solid #d6d6d6; border-radius: 3px; color: #666; font-size: 10px; font-weight: 700; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; }
+.tpw-account-drawer .tpw-account-intake:hover .tpw-account-intake-label { text-decoration: underline; text-underline-offset: 4px; }
+.tpw-account-drawer button:hover { text-decoration: underline; }
+.tpw-account-drawer a:focus-visible, .tpw-account-drawer button:focus-visible { outline: 2px solid #555; outline-offset: 4px; }
+.tpw-account-drawer .tpw-account-preview { margin: 20px 0 0; color: #777; font-size: 12px; }
+@media print { .tpw-account-drawer, .tpw-account-drawer::backdrop { display: none !important; } }
+
+/* Copy of TPW's own sign-in box (thetpw.org/account/login), measured 25 Oct 2026:
+   480px white box, 44px padding, 4px corners, soft shadow over a 30% dark backdrop,
+   #3e3e3e text and button. Clarkson is Squarespace's font; the fallbacks are theirs too. */
+.tpw-signin { box-sizing: border-box; width: min(480px, calc(100vw - 32px)); max-width: none; margin: auto; padding: 44px 44px 22px; border: 0; border-radius: 4px; background: #fff; color: #3e3e3e; box-shadow: 0 2px 114px rgb(0 0 0 / 30%); font: 300 13px/1.5 Clarkson, 'Proxima Nova', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center; }
+.tpw-signin::backdrop { background: rgb(0 0 0 / 30%); }
+.tpw-signin * { box-sizing: border-box; }
+.tpw-signin h2 { margin: 0 0 22px; color: #3e3e3e; font-family: inherit; font-size: 24px; font-weight: 400; line-height: 1.7; letter-spacing: 0; }
+.tpw-signin input { display: block; width: 100%; margin: 0; padding: 13px 11px; border: 1px solid transparent; border-radius: 0; color: #000; font: inherit; text-align: left; }
+.tpw-signin .tpw-signin-email { background: #f7f7f7; }
+.tpw-signin .tpw-signin-email:focus { outline: none; border-color: #3e3e3e; }
+.tpw-signin .tpw-signin-password { background: #fff; border-bottom-color: #e6e6e6; padding-left: 0; padding-right: 0; }
+.tpw-signin .tpw-signin-password:disabled { color: #999; cursor: not-allowed; }
+.tpw-signin button { width: auto; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.tpw-signin .tpw-signin-submit { display: block; width: 100%; height: 44px; margin-top: 18px; padding: 11px; border-radius: 3px; background: #3e3e3e; color: #fff; font-weight: 500; }
+.tpw-signin .tpw-signin-submit:hover { background: #2b2b2b; }
+.tpw-signin .tpw-signin-message { min-height: 0; margin: 10px 0 0; color: #a33; font-size: 12px; }
+.tpw-signin .tpw-signin-message:empty { display: none; }
+.tpw-signin .tpw-signin-links { margin: 14px 0 0; font-size: 12px; }
+.tpw-signin .tpw-signin-links button { padding-right: 11px; }
+.tpw-signin .tpw-signin-links button:last-child { padding-right: 0; }
+.tpw-signin .tpw-signin-links button:hover { text-decoration: underline; }
+.tpw-signin .tpw-signin-demo { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-top: 22px; padding-top: 18px; border-top: 1px solid #eee; }
+.tpw-signin .tpw-signin-demo p { width: 100%; margin: 0 0 2px; color: #777; font-size: 12px; }
+.tpw-signin .tpw-signin-demo button { padding: 8px 14px; border: 1px solid #d6d6d6; border-radius: 3px; font-size: 13px; font-weight: 500; }
+.tpw-signin .tpw-signin-demo button:hover { border-color: #3e3e3e; }
+.tpw-signin .tpw-signin-close { position: absolute; top: 14px; right: 16px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.tpw-signin a:focus-visible, .tpw-signin button:focus-visible { outline: 2px solid #555; outline-offset: 3px; }
+.tpw-signin .tpw-account-preview { margin: 18px 0 0; color: #777; font-size: 12px; }
+@media (max-width: 480px) { .tpw-signin { padding: 36px 22px 18px; } }
+@media print { .tpw-signin, .tpw-signin::backdrop { display: none !important; } }
